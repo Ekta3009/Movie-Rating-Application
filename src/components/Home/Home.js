@@ -9,11 +9,12 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
-
+  const movieText = "Harry";
+  const seriesText = "Friends";
   //useEffect used to refresh required components on every render
   useEffect(() => {
-    dispatch(fetchMoviesUsingThunk());
-    dispatch(fetchSeriesUsingThunk());
+    dispatch(fetchMoviesUsingThunk(movieText));
+    dispatch(fetchSeriesUsingThunk(seriesText));
   }, []);
 
   return (
