@@ -1,6 +1,14 @@
-export const settings = {
+export const errorSettings = {
   dots: false,
   infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+export const settings = {
+  dots: false,
+  infinite: false,
   speed: 500,
   slidesToShow: 6,
   slidesToScroll: 3,
@@ -13,7 +21,7 @@ export const settings = {
       settings: {
         slidesToShow: 6,
         slidesToScroll: 3,
-        infinite: true,
+        infinite: false,
         dots: false,
       },
     },
@@ -22,7 +30,7 @@ export const settings = {
       settings: {
         slidesToShow: 5,
         slidesToScroll: 2,
-        infinite: true,
+        infinite: false,
         dots: false,
       },
     },
@@ -31,7 +39,7 @@ export const settings = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: true,
+        infinite: false,
         dots: false,
       },
     },

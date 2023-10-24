@@ -34,6 +34,8 @@ const initialState = {
   movies: {},
   series: {},
   selected: {},
+  loadingMovies: "False",
+  loadingSeries: "False",
 };
 
 export const movieSlice = createSlice({
@@ -45,22 +47,21 @@ export const movieSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchMoviesUsingThunk.pending]: () => {
+    [fetchMoviesUsingThunk.pending]: (state) => {
       console.log("Fetch Movie Request Pending...");
+      return { ...state, loadingMovies: "True" };
+    },
+    [fetchSeriesUsingThunk.pending]: (state) => {
+      console.log("Fetch Series Request Pending...");
+      return { ...state, loadingSeries: "True" };
     },
     [fetchMoviesUsingThunk.fulfilled]: (state, { payload }) => {
       console.log("Fetch Movie Request Successful...");
-      return { ...state, movies: payload };
-    },
-    [fetchMoviesUsingThunk.rejected]: () => {
-      console.log("Fetch Movie Request Rejected...");
-    },
-    [fetchSeriesUsingThunk.pending]: () => {
-      console.log("Fetch Series Request Pending...");
+      return { ...state, movies: payload, loadingMovies: "False" };
     },
     [fetchSeriesUsingThunk.fulfilled]: (state, { payload }) => {
       console.log("Fetch Series Request Successful...");
-      return { ...state, series: payload };
+      return { ...state, series: payload, loadingSeries: "False" };
     },
     [fetchDetailsUsingThunk.fulfilled]: (state, { payload }) => {
       console.log("Details fetched Successfully...");
@@ -79,6 +80,10 @@ export const getAllMovies = (state) => state.movies.movies;
 export const getAllSeries = (state) => state.movies.series;
 
 export const getSelectedDetails = (state) => state.movies.selected;
+
+export const getMoviesLoadingStatus = (state) => state.movies.loadingMovies;
+
+export const getSeriesLoadingStatus = (state) => state.movies.loadingSeries;
 
 //Export the reducers
 export default movieSlice.reducer;

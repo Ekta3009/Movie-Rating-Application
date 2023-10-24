@@ -10,6 +10,22 @@
 
 }
 
+.movies-error, .series-error{
+    display : flex;
+    justify-content: space-evenly;
+    padding : 40px 0px;
+    color : $font-primary;
+    font-weight: 400;
+}
+
+.loading-style{ 
+    display : flex;
+    justify-content: space-evenly;
+    padding : 40px 0px;
+    color : $font-primary;
+    font-weight: 400;
+}
+
 
 
 

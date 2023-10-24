@@ -34,6 +34,7 @@ const Header = () => {
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search Movies and Shows"
             className="form-text"
+            required
           />
           <button type="submit">
             <i className="fa fa-search"></i>
